@@ -1,5 +1,13 @@
-<project name="build hooks" default="build" basedir=".">
-    <target name="build">
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="tc-php-test" default="create-package" basedir=".">
+    <import file="./build-commons.xml"/>
+    <import file="./build-macros.xml"/>
 
+    <target name="create-package" depends="install-composer-packages"/>
+
+    <target name="install-composer-packages">
+        <exec executable="composer" failonerror="true">
+            <arg value="install"/>
+        </exec>
     </target>
 </project>
