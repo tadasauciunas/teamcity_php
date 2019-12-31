@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="tc-php-test" default="create-package" basedir=".">
+    <target name="my_test_target">
+        <exec executable="echo">
+            <arg line="hello world"/>
+        </exec>
+    </target>
+
+    <target name="my_test_target2">
+        <exec executable="php">
+            <arg line="-v"/>
+        </exec>
+    </target>
+
     <target name="create-package" depends="install-composer-packages"/>
 
     <target name="install-composer-packages">

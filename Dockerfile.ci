@@ -1,0 +1,3 @@
+FROM docker-registry.azets.com/devops/cozone-docker-dev/phpfpm-nginx:7.3
+
+RUN apt update && apt install ant -y

@@ -1,9 +1,11 @@
-version: '3.7'
-
+version: '3.5'
 services:
-  php:
-    image: php:cli
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    container_name: my_test_container2
     environment:
-      - LOCALUSER=1000
+      - APPLICATION_ENV=development
     volumes:
       - .:/var/www
