@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  php:
+    image: php:cli
+    environment:
+      - LOCALUSER=1000
+    volumes:
+      - .:/var/www
