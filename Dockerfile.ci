@@ -1,3 +1,10 @@
-FROM docker-registry.azets.com/devops/cozone-docker-dev/phpfpm-nginx:7.3
+FROM php:7.3-fpm-buster
 
-RUN apt update && apt install ant -y
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+# Create man1 directory - required by openjdk-11-jdk package
+RUN mkdir -p /usr/share/man/man1
+
+RUN apt-get update -y \
+    && apt-get upgrade -y \
+    && apt install -y ant
