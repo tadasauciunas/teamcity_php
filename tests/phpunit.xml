@@ -1,0 +1,12 @@
+<phpunit colors="true" failOnRisky="true" cacheResult="false">
+    <filter>
+        <whitelist>
+            <directory>../module/*/src/*/</directory>
+        </whitelist>
+    </filter>
+    <testsuites>
+        <testsuite name="Full unit test suite">
+            <directory>../module/*/tests/*/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

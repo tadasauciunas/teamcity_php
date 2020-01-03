@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="tc-php-test" default="create-package" basedir=".">
-    <target name="my_test_target" depends="create-package">
+
+    <target name="create-package" depends="install-composer-packages"/>
+
+    <target name="install-composer-packages">
+        <exec executable="composer">
+            <arg value="install"/>
+        </exec>
+    </target>
+
+    <target name="unit tests">
+        <exec executable="vendor/phpunit/phpunit/phpunit">
+            <arg line="module"/>
+            <arg line="-c tests/phpunit.xml"/>
+        </exec>
+    </target>
+
+    <target name="acceptance tests">
         <exec executable="vendor/codeception/codeception/codecept">
             <arg line="run"/>
         </exec>
     </target>
 
-    <target name="create-package" depends="install-composer-packages"/>
-
-    <target name="install-composer-packages">
-        <exec executable="composer" failonerror="true">
-            <arg value="install"/>
-        </exec>
-    </target>
 </project>
