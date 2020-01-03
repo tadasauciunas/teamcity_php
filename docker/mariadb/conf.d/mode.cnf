@@ -1,0 +1,4 @@
+[mysqld]
+sql-mode=''
+query_cache_size = 0
+query_cache_type = 0

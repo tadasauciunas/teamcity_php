@@ -9,3 +9,14 @@ services:
       - APPLICATION_ENV=development
     volumes:
       - .:/var/www
+  mysql:
+    image: mariadb:10.2.23
+    container_name: mysql.ddd
+    hostname: mysql.ddd
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./docker/mariadb/conf.d:/etc/mariadb/conf.d
+      - ./docker/mariadb/initdb.d:/docker-entrypoint-initdb.d
+

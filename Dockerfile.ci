@@ -7,4 +7,13 @@ RUN mkdir -p /usr/share/man/man1
 
 RUN apt-get update -y \
     && apt-get upgrade -y \
-    && apt install -y ant
+    && apt install -y ant \
+    && apt-get install -y \
+     libmcrypt-dev \
+     zlib1g-dev \
+     libzip-dev \
+     git \
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install zip
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
